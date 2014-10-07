@@ -32,3 +32,5 @@ echo "    mongo admin -u admin -p $PASS --host <host> --port <port>"
 echo ""
 echo "Please remember to change the above password as soon as possible!"
 echo "========================================================================"
+killall mongodb
+./run.sh
