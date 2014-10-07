@@ -54,5 +54,15 @@ You can now test your new admin password:
 
         mongo admin -u admin -p mypass
         curl --user admin:mypass --digest http://localhost:28017/
+        
+        
+Persistent Data
+---------------
+You should mount a volume at /data/db.
+
+mkdir -p /opt/mongodb
+docker run -name mongodb -d \
+  -v /opt/mongodb:/data/db tutum/mongodb:latest
+This will make sure that the data stored in the database is not lost when the image is stopped and started again.
 
 **by http://www.tutum.co**
