@@ -60,9 +60,10 @@ Persistent Data
 ---------------
 You should mount a volume at /data/db.
 
-mkdir -p /opt/mongodb
-docker run -name mongodb -d \
-  -v /opt/mongodb:/data/db tutum/mongodb:latest
+        mkdir -p /opt/mongodb
+        docker run -name mongodb -d \
+        -v /opt/mongodb:/data/db tutum/mongodb:latest
+
 This will make sure that the data stored in the database is not lost when the image is stopped and started again.
 
 **by http://www.tutum.co**
