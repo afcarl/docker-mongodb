@@ -11,6 +11,6 @@ if [ ! -f /var/lib/mongodb/mongod.lock ]; then
 exec sudo -u mongodb -H /usr/bin/mongod --config /etc/mongod.conf --httpinterface --rest --nojournal --auth --smallfiles
 else
 rm /var/lib/mongodb/mongod.lock
-mongod --dbpath /data/db --repair && exec sudo -u mongodb -H /usr/bin/mongod --config /etc/mongod.conf --httpinterface --rest --nojournal --auth --smallfiles --dbpath /var/lib/mongodb
+mongod --dbpath /var/lib/mongodb --repair && exec sudo -u mongodb -H /usr/bin/mongod --config /etc/mongod.conf --httpinterface --rest --nojournal --auth --smallfiles --dbpath /var/lib/mongodb
 fi
 
