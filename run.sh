@@ -5,6 +5,7 @@ set -e
 chown -R mongodb:mongodb /var/lib/mongodb
 
 if [ ! -f /.mongodb_password_set ]; then
+	echo "Found no /.mongodb_password_set"
 	/set_mongodb_password.sh
 fi
 if [ ! -f /var/lib/mongodb/mongod.lock ]; then
