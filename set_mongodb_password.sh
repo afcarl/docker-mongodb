@@ -6,7 +6,7 @@ if [ -f /.mongodb_password_set ]; then
 	exit 0
 fi
 
-/usr/bin/mongod --smallfiles --nojournal --dbpath /var/lib/mongodb &
+/usr/bin/mongod -u mongodb -H /usr/bin/mongod --config /etc/mongod.conf --httpinterface --rest --nojournal --auth --smallfiles --dbpath /var/lib/mongodb &
 
 PASS=${MONGODB_PASS:-$(pwgen -s 12 1)}
 _word=$( [ ${MONGODB_PASS} ] && echo "preset" || echo "random" )
