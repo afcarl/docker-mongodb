@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 if [ -f /.mongodb_password_set ]; then
 	echo "MongoDB password already set!"
@@ -19,7 +18,7 @@ while [[ RET -ne 0 ]]; do
     mongo admin --eval "help" >/dev/null 2>&1
     RET=$?
 done
-
+ps aux
 echo "=> Creating an admin user with a ${_word} password in MongoDB"
 mongo admin --eval "db.addUser({user: 'admin', pwd: '$PASS', roles: [ 'userAdminAnyDatabase', 'dbAdminAnyDatabase' ]});"
 mongo admin --eval "db.shutdownServer();"
